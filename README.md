@@ -2,20 +2,21 @@
 - [1. Introducción](#1-introducción)
   - [El lenguaje Python](#el-lenguaje-python)
   - [Herramientas](#herramientas)
-  - [Elementos de un programa](#elementos-de-un-programa)
+  - [Instrucciones](#instrucciones)
   - [Nombres de archivos](#nombres-de-archivos)
   - [Comentarios](#comentarios)
 - [2. Print e input](#2-print-e-input)
   - [Print](#print)
   - [Input](#input)
 - [3. Variables](#3-variables)
+  - [Declarar una variable](#declarar-una-variable)
+  - [Asignación](#asignación)
+  - [Ámbito](#ámbito)
 - [4. Operadores](#4-operadores)
   - [Operadores aritméticos](#operadores-aritméticos)
   - [Orden de operaciones](#orden-de-operaciones)
   - [Operadores de asignación](#operadores-de-asignación)
   - [Operadores lógicos](#operadores-lógicos)
-  - [Ejercicios](#ejercicios)
-  - [Operaciones con cadenas de caracteres](#operaciones-con-cadenas-de-caracteres)
 - [5. Condicionales](#5-condicionales)
   - [Partes de un condicional](#partes-de-un-condicional)
   - [If](#if)
@@ -31,8 +32,8 @@
   - [Devolver valores](#devolver-valores)
 - [8. Librerías, módulos o bibliotecas](#8-librerías-módulos-o-bibliotecas)
   - [¿Qué son las bibliotecas?](#qué-son-las-bibliotecas)
+  - [Importar](#importar)
   - [Instalación de una biblioteca](#instalación-de-una-biblioteca)
-  - [Cargar una biblioteca](#cargar-una-biblioteca)
   - [Usar una biblioteca](#usar-una-biblioteca)
 - [9. Archivos](#9-archivos)
   - [Leer un archivo](#leer-un-archivo)
@@ -47,7 +48,7 @@
   - [Iterar sobre una lista](#iterar-sobre-una-lista)
   - [Longitud de una lista](#longitud-de-una-lista)
   - [Eliminar elementos de una lista](#eliminar-elementos-de-una-lista)
-  - [11. Ordenar](#11-ordenar)
+  - [Ordenar](#ordenar)
 - [11.Manejo de Errores en Python](#11manejo-de-errores-en-python)
   - [Errores de Sintaxis](#errores-de-sintaxis)
   - [Excepciones](#excepciones)
@@ -84,36 +85,17 @@ El más habitual es Visual studio code.
 
 ![Alt text](image.png)
 
-## Elementos de un programa
+## Instrucciones
 
-A tener en cuenta:
+Un programa es conjunto de una o más **instrucciones**. Cada instrucción ocupa una línea, y dichas listas están numeradas. De esta forma es fácil localizarlas y encontrar errores.
 
-- Un programa es conjunto de una o más **instrucciones**
-- Intentar que cada instrucción ocupe línea
-- Si queremos agrupar 2 instrucciones en una línea (;)
-
-```python linenums="1"
-print("cada línea termina en ;");
-print("esta línea está mal")
-print("la línea anterior tendria que terminar en ;");
-```
-
-- Si no cabe toda la instrucción, continuar en siguiente línea (/)
-- Al final de las líneas no se coloca ; ni se utilizan { }
-
-En un programa, las líneas están numeradas para conocer en qué lugar del programa nos encontramos, pero los números no tienen ningún efecto en especial.
-
-```python linenums="1"
-print("estas es la línea 1 ;");
-print("esta la 2. va a dar error aquí")
-print("esta la 3");
-```
+![](img/2023-12-01-16-34-31.png)
 
 ## Nombres de archivos
 
-- Se guardan con extensión .py
-- Nombre escritos en minúsculas
-- Utilizar guiones bajos para separar palabras o números
+- Se guardan con extensión ``.py``
+- Nombre escritos en ``minúsculas``
+- Utilizar ``guiones bajos`` para separar palabras o números
 
 Ejemplos:
 
@@ -156,7 +138,7 @@ Por ejemplo, aquí estamos deshabilitando la línea de código a continuación:
 
 ## Print
 
-La función `print()` se encarga de imprimir por pantalla.
+La función `print()` se encarga de imprimir por pantalla. Sirve para informar al usuario, mostrar resultados o darle instrucciones.
 
 Por ejemplo:
 
@@ -196,12 +178,19 @@ Edad = 20
 Nombre = "Dani"
 vivo = True
 ```
-Para imprimir una variable indicamos su nombre sin comillas:
+## Declarar una variable
+
+Para poder usar una variable, hay que declarla antes. Es decir, hay que nombrarla y asignarle un valor para que así exista y podamos hacer referencia a ella.
+
 ```python
 nombre = "Dani"
 print(nombre)
+nombre = "Pepe"
 ```
-El signo igual asigna un valor a la variable.
+
+## Asignación
+
+El signo igual asigna un valor a la variable. Podemos cambiar el valor que tiene nuestra variable en cualquier momento.
 
 Un ejemplo completo:
 
@@ -214,6 +203,22 @@ Si queremos convertir el resultado de un input en un número utilizamos la funci
 ```python
 edad = int(input("dime tu edad"))
 print(edad+5)
+```
+
+## Ámbito
+
+Una variable solo existe y se puede usar en el bloque en el que ha sido declarada. Es decir, en el siguiente ejemplo:
+
+- nombre se puede usar en cualquier lugar del programa
+- apellido solo puede usarse dentrol del if, y no funcionará fuera de él.
+
+```python
+nombre = "dani"
+print(nombre)
+if nombre == "dani":
+    apellido = "martinez"
+    print("Hola Dani")
+
 ```
 
 # 4. Operadores
@@ -241,38 +246,11 @@ c = a + b
 print(c) # imprime 7
 ```
 
-**Resta**
+Del mismo modo:
 
-La resta se puede realizar usando el operador `-`. Por ejemplo:
-
-```python
-a = 3
-b = 4
-c = a - b
-print(c) # imprime -1
-```
-
-**Multiplicación**
-
-La multiplicación se puede realizar usando el operador `*`. Por ejemplo:
-
-```python
-a = 3
-b = 4
-c = a * b
-print(c) # imprime 12
-```
-
-**División**
-
-La división se puede realizar usando el operador `/`. Por ejemplo:
-
-```python
-a = 6
-b = 3
-c = a / b
-print(c) # imprime 2
-```
+- La resta se puede realizar usando el operador `-`.
+- La multiplicación se puede realizar usando el operador `*`.
+- La división se puede realizar usando el operador `/`.
 
 **Módulo**
 
@@ -316,60 +294,32 @@ a = 3
 a += 5
 print(a) # imprime 8
 ```
+Del mismo modo:
 
-**Sustracción**
+- La sustracción se puede realizar usando el operador `-=`.
+- La multiplicación se puede realizar usando el operador `*=`.
+- La división se puede realizar usando el operador `/=`.
 
-La sustracción se puede realizar usando el operador `-=`. Por ejemplo:
-
-```python
-a = 3
-a -= 5
-print(a) # imprime -2
-```
-
-**Multiplicación**
-
-La multiplicación se puede realizar usando el operador `*=`. Por ejemplo:
-
-```python
-a = 3
-a *= 5
-print(a) # imprime 15
-```
-
-**División**
-
-La división se puede realizar usando el operador `/=`. Por ejemplo:
-
-```python
-a = 15
-a /= 5
-print(a) # imprime 3
-```
 ## Operadores lógicos
 
-Los operadores lógicos permiten realizar comparaciones entre variables y devolver un valor booleano.
+Los operadores lógicos permiten realizar comparaciones entre variables y devolver un valor booleano. Estos valores nos permiten tomar decisiones en ciertos momentos de nuestro programa.
 
-**Igual**
+Una variable booleana puede tener dos valores:
 
-La igualdad se puede comprobar usando el operador `==`. Por ejemplo:
+- ``False``
+- ``True``
+
+**Igualdad y desigualdad**
+
+La igualdad se puede comprobar usando el operador `==`. La desigualdad se puede comprobar usando el operador `!=`.
 
 ```python
 a = 3
 b = 4
 c = (a == b)
 print(c) # imprime False
-```
-
-**No igual**
-
-La desigualdad se puede comprobar usando el operador `!=`. Por ejemplo:
-
-```
-a = 3
-b = 4
-c = (a != b)
-print(c) # imprime True
+d = (a != b)
+print(d) # imprime True
 ```
 
 **Mayor que**
@@ -383,43 +333,11 @@ c = (a > b)
 print(c) # imprime False
 ```
 
-**Menor que**
+Del mismo modo:
 
-La comparación menor que se puede comprobar usando el operador `<`. Por ejemplo:
-
-```python
-a = 3
-b = 4
-c = (a < b)
-print(c) # imprime True
-```
-
-**Mayor o igual que**
-
-La comparación mayor o igual que se puede comprobar usando el operador `>=`. Por ejemplo:
-
-```python
-a = 3
-b = 4
-c = (a >= b)
-print(c) # imprime False
-```
-
-**Menor o igual que**
-
-La comparación menor o igual que se puede comprobar usando el operador `<=`. Por ejemplo:
-
-```python
-a = 3
-b = 4
-c = (a <= b)
-print(c) # imprime True
-```
-
-## Ejercicios
-
-Crea un programa que te pida una contraseña. A continuación, te debería pedir que la vuelvas a escribir. Si las dos contraseñas escritas no coinciden, mostrar un mensaje informando de que las contraseñas introducidas no son iguales. Si coinciden, mostrar un mensaje informando que se ha cambiado la contraseña.
-## Operaciones con cadenas de caracteres
+- La comparación menor que se puede comprobar usando el operador `<`.
+- La comparación mayor o igual que se puede comprobar usando el operador `>=`.
+- La comparación menor o igual que se puede comprobar usando el operador `<=`.
 
 **Concatenación**
 
@@ -431,10 +349,6 @@ cadena2 = "mundo"
 cadena3 = cadena1 + " " + cadena2
 print(cadena3)
 ```
-
-**Repetición**
-
-Intenta hacer ‘Mamá’*5 a ver qué pasa…
 
 **Partes de una cadena**
 
@@ -606,6 +520,15 @@ def calcular (numero1, numero2):
     numero3 = numero3*3
 ```
 
+La siguiente línea que no esté identada, marcará el final de la función:
+
+```python
+def calcular (numero1, numero2):
+    numero3 = numero1 + numero2
+    numero3 = numero3*3
+print("esto ya no está en la función")
+```
+
 Para llamar a la función, únicamente utilizamos el nombre, y pasamos el valor correspondiente a las variables que necesite:
 
 ```python
@@ -635,22 +558,35 @@ total = precio_con_iva(30)
 
 # 8. Librerías, módulos o bibliotecas
 
-Las **bibliotecas** de Python son recursos de código que se pueden utilizar para realizar tareas específicas. Estas bibliotecas de código se almacenan en un directorio llamado "librería". Esta guía le ayudará a aprender cómo usar estas bibliotecas para realizar tareas en Python.
+Las **bibliotecas** de Python son recursos de código que se pueden utilizar para realizar tareas específicas. Estas bibliotecas de código se almacenan en un directorio llamado "librería". E
 
 ## ¿Qué son las bibliotecas?
 
 Una **biblioteca** es una colección de archivos de código que pueden ser usados ​​para realizar tareas específicas. Estas bibliotecas contienen código que se ha escrito con antelación para hacer que sea fácil realizar ciertas tareas. Por ejemplo, una biblioteca puede contener código que le permite crear gráficos o leer archivos de datos.
 
-## Instalación de una biblioteca
+## Importar
 
-Para usar una biblioteca, primero debe **instalarla**. La forma de instalar una biblioteca depende de la biblioteca en particular. Algunas bibliotecas se pueden instalar utilizando el gestor de paquetes de Python, **pip**. Otras bibliotecas se pueden instalar descargando el código fuente y compilándolo.
-
-## Cargar una biblioteca
-
-Una vez que haya instalado una biblioteca, debe cargarla antes de poder usarla. Esto se hace utilizando la función de Python `import`. Por ejemplo, para cargar la biblioteca `matplotlib`, puede usar el siguiente código:
+Algunas bibliotecas como ``math``, ``statistics``, etc. vienen instaladas por defecto con Python. Para usarlas, se hace utilizando la función de Python `import`. Por ejemplo, para cargar la biblioteca `math`, puede usar el siguiente código:
 
 ```python
-import matplotlib
+import math
+```
+
+A continuación, cuando queramos utilizar una función de esta biblioteca, podemos usar su nombre y, seguido de punto, la función u objeto a utilizar.
+
+```python
+import math
+math.sqrt(20)
+```
+
+## Instalación de una biblioteca
+
+Otras bibliotecas, primero debes **instalarlas**. La forma de instalar una biblioteca depende de la biblioteca en particular. Algunas bibliotecas se pueden instalar utilizando el gestor de paquetes de Python, **pip**. Otras bibliotecas se pueden instalar descargando el código fuente y compilándolo.
+
+Por ejemplo, para instalar ``pygame``, como no viene incluída de serie con Python:
+
+```bash
+pip install pygame
 ```
 
 ## Usar una biblioteca
@@ -669,6 +605,10 @@ pyplot.show()
 ```
 
 # 9. Archivos
+
+Una vez termina nuestro programa, todos los datos se borran de la memoria del ordenador. Si queremos tenerlos disponibles, necesitamos o bien guardar nuestros datos en una base de datos, o bien en algún archivo.
+
+Los archivos nos permiten guardar datos en nuestro ordenador de forma permanente.
 
 ## Leer un archivo
 
@@ -766,7 +706,7 @@ with open('archivo.txt', 'a') as archivo:
 
 # 10. Listas
 
-Los objetos que almacenan otros objetos se llaman **colecciones**. Las más sencillas son las listas.
+Los objetos que almacenan otros objetos se llaman ``colecciones``. Las más sencillas son las ``listas``.
 
 Las **listas** son un tipo de dato en Python que le permite almacenar un conjunto de elementos de manera ordenada y acceder a ellos mediante un **índice**. Las listas son una de las estructuras de datos más útiles y versátiles en Python.
 
@@ -837,9 +777,9 @@ Eliminar el último elemento:
 del alumnos[-1]
 ```
 
-## 11. Ordenar
+## Ordenar
 
-Podemos ordenar a los alumnos por orden alfabético:
+Podemos ordenar a los alumnos por orden alfabético con la función ``sort()`` que tienen todas las listas:
 
 ```python
 alumnos.sort()
